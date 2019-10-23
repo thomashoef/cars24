@@ -36,6 +36,7 @@ namespace cars24
 
             services.AddDbContext<CarAdvertContext>(opt =>
                opt.UseInMemoryDatabase("cars24"));
+
             services.AddControllers();
         }
 

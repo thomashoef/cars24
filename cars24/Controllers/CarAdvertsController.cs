@@ -7,6 +7,7 @@ using Microsoft.EntityFrameworkCore;
 using cars24.Models;
 using cars24.Helpers;
 using System.Linq;
+using cars24.Enumerations;
 
 namespace cars24.Controllers
 {
@@ -16,11 +17,24 @@ namespace cars24.Controllers
     {
         private readonly CarAdvertContext _context;
 
+        // TODO remove once demo inserts are removed
+        private static bool hasInitializedDbWithDemoData = false;
+
         public CarAdvertsController(CarAdvertContext context)
         {
             _context = context;
-        }
 
+            // TODO Remove these hardcoded lines if you like, left them here to pre-populate the in-memory db
+            if (!hasInitializedDbWithDemoData) {
+                hasInitializedDbWithDemoData = true;
+                _context.CarAdverts.Add(new CarAdvert() { Id = 1, Fuel = FuelType.Diesel, IsNew = false, Mileage = 10000, FirstRegistration = DateTime.Now.Date, Price = 10000, Title = "First test car" });
+                _context.CarAdverts.Add(new CarAdvert() { Id = 2, Fuel = FuelType.Gasoline, IsNew = false, Mileage = 20000, FirstRegistration = DateTime.Now.Date, Price = 8000, Title = "Second test car" });
+                _context.CarAdverts.Add(new CarAdvert() { Id = 3, Fuel = FuelType.Gasoline, IsNew = true, Mileage = 0, Price = 6000, Title = "Third test car" });
+                _context.CarAdverts.Add(new CarAdvert() { Id = 4, Fuel = FuelType.Diesel, IsNew = true, Mileage = 0, Price = 36000, Title = "Fourth test car" });
+                _context.SaveChanges();
+            }
+        }
+                
         // GET: api/CarAdverts
         [HttpGet]
         public async Task<ActionResult<IEnumerable<CarAdvert>>> GetCarAdverts([FromQuery] string sortBy = null)

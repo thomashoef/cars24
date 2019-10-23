@@ -1,0 +1,178 @@
+{
+	"info": {
+		"_postman_id": "e517599b-2661-4b9e-b390-d486a01ebd87",
+		"name": "CarAdverts",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Add CarAdvert",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"id\":7,\n  \"title\":\"test car 7\",\n  \"fuel\": 0,\n  \"price\":14000,\n  \"isNew\":true,\n  \"mileage\":0,\n  \"firstRegistration\": \"2019-10-23\"\n}"
+				},
+				"url": {
+					"raw": "https://localhost:5001/api/CarAdverts",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "5001",
+					"path": [
+						"api",
+						"CarAdverts"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": "",
+							"disabled": true
+						}
+					]
+				},
+				"description": "Add a car advert"
+			},
+			"response": []
+		},
+		{
+			"name": "Get CarAdvert",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:5001/api/CarAdverts/1",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "5001",
+					"path": [
+						"api",
+						"CarAdverts",
+						"1"
+					]
+				},
+				"description": "Gets a car advert"
+			},
+			"response": []
+		},
+		{
+			"name": "Get all CarAdverts",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:5001/api/CarAdverts",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "5001",
+					"path": [
+						"api",
+						"CarAdverts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add CarAdvert 2",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"id\":6,\n  \"title\":\"test car 6\",\n  \"fuel\": 0,\n  \"price\":13000,\n  \"isNew\":true,\n  \"mileage\":0,\n  \"firstRegistration\": \"2019-04-23\"\n}"
+				},
+				"url": {
+					"raw": "https://localhost:5001/api/CarAdverts",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "5001",
+					"path": [
+						"api",
+						"CarAdverts"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": "",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update a car advert",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"id\":2,\n  \"title\":\"test car 2 updated\",\n  \"fuel\": 0,\n  \"price\":13000,\n  \"isNew\":true,\n  \"mileage\":0,\n  \"firstRegistration\": \"2012-04-23\"\n}"
+				},
+				"url": {
+					"raw": "https://localhost:5001/api/CarAdverts/7",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "5001",
+					"path": [
+						"api",
+						"CarAdverts",
+						"7"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete a card advert",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:5001/api/CarAdverts/2",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "5001",
+					"path": [
+						"api",
+						"CarAdverts",
+						"2"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
