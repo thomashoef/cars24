@@ -3,7 +3,7 @@ namespace cars24.Enumerations
 {
     public enum FuelType
     {
-        Gasoline,
-        Diesel
+        Gasoline = 0,
+        Diesel = 1
     }
 }

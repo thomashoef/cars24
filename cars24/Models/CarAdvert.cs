@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations;
 using cars24.Enumerations;
 
 namespace cars24.Models
@@ -11,6 +12,7 @@ namespace cars24.Models
         public int Price { get; set; }
         public bool IsNew { get; set; }
         public int Mileage { get; set; }
+        [DataType(DataType.Date)]
         public DateTime FirstRegistration { get; set; }
     }
 }

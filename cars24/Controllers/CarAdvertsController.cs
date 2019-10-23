@@ -1,11 +1,12 @@
 using System;
 using System.Collections.Generic;
-using System.Linq;
+using System.Linq.Dynamic.Core;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using cars24.Models;
+using cars24.Helpers;
+using System.Linq;
 
 namespace cars24.Controllers
 {
@@ -22,13 +23,13 @@ namespace cars24.Controllers
 
         // GET: api/CarAdverts
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<CarAdvert>>> GetCarAdverts()
+        public async Task<ActionResult<IEnumerable<CarAdvert>>> GetCarAdverts([FromQuery] string sortBy)
         {
-            return await _context.CarAdverts.ToListAsync();
+            return await _context.CarAdverts.OrderBy(SortHelper.CarAdvert(sortBy)).ToListAsync();
         }
 
         // GET: api/CarAdverts/5
-        [HttpGet("{id}")]
+        [HttpGet("{id:int}")]
         public async Task<ActionResult<CarAdvert>> GetCarAdvert(int id)
         {
             var carAdvert = await _context.CarAdverts.FindAsync(id);
@@ -79,6 +80,7 @@ namespace cars24.Controllers
         [HttpPost]
         public async Task<ActionResult<CarAdvert>> PostCarAdvert(CarAdvert carAdvert)
         {
+
             _context.CarAdverts.Add(carAdvert);
             await _context.SaveChangesAsync();
 
