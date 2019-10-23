@@ -23,7 +23,7 @@ namespace cars24.Controllers
 
         // GET: api/CarAdverts
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<CarAdvert>>> GetCarAdverts([FromQuery] string sortBy)
+        public async Task<ActionResult<IEnumerable<CarAdvert>>> GetCarAdverts([FromQuery] string sortBy = null)
         {
             return await _context.CarAdverts.OrderBy(SortHelper.CarAdvert(sortBy)).ToListAsync();
         }
