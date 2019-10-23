@@ -14,4 +14,6 @@ POSTING a new car advert to /api/CarAdverts will insert a new record.
 DELETE requests to /api/CardAdverts/<id> will delete records with that ID.
 PUT requests to /api/CardAdverts/<id> will update a record if an advert with the given id exists.
 GET requests to /api/CardAdverts will return all adverts sorted by ID. Issuing a GET to /api/CardAdverts?sortBy=<fieldname> will return adverts sorted by a given property of a CardAdvert e.g. sortBy=price
- 
+
+### Unit tests
+XUnit tests have been added to test the basic methods described above on the RESTful car advert controller. 
